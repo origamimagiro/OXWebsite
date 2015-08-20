@@ -7,11 +7,12 @@ from django.core.exceptions import ObjectDoesNotExist
 def index(request):
 	return HttpResponse('VALID')
 
-def bro_info(request, args):
+def brother_profile(request, args):
 	try:
 		user = User.objects.get(username=args)
 		brother = Brother.objects.get(user=user)
-		return HttpResponse(str(brother))
+		args = {'brother':brother}
+		return render(request, 'templates/brotherhood/spotlight.html', args)
 	except ObjectDoesNotExist:
 		raise Http404('ERROR')
 

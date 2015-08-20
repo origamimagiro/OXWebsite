@@ -19,10 +19,12 @@ from people import urls as people_urls
 from . import views
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', views.redirect),
     url(r'^main/', views.index),
     url(r'^brotherhood/', views.brotherhood),
     url(r'^people/', include(people_urls)),
     url(r'^rush/', views.rush),
-    url(r'^events/', views.events)
+    url(r'^events/', views.events),
+    url(r'^admin/', include(admin.site.urls))
+
 ]

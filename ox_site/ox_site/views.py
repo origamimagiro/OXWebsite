@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response, RequestContext
+from django.shortcuts import render, render_to_response, RequestContext, HttpResponseRedirect
 from people.models import Brother
 from django.contrib.auth.decorators import login_required
 
@@ -9,12 +9,15 @@ def index(request):
 
 def brotherhood(request):
 	henry = Brother.objects.all()
-	args = {'bros':henry}
+	args = {'brothers':henry}
 	print(args)
-	return render_to_response('brotherhood.html', args, context_instance=RequestContext(request))
+	return render_to_response('templates/brotherhood/base.html', args, context_instance=RequestContext(request))
 
 def rush(request):
 	return render_to_response('rush.html', context_instance=RequestContext(request))
 
 def events(request):
 	return render_to_response('events.html', context_instance=RequestContext(request))
+
+def redirect(request):
+	return HttpResponseRedirect('/main/')

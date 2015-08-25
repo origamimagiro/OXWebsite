@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
+{% load staticfiles %}
 <html>
 	<head>
 		<title>{% block name %}name{% endblock %}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="{{STATIC_URL}}assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="{{STATIC_URL}}assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="{{STATIC_URL}}assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="{% static "assets/js/ie/html5shiv.js" %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static "assets/css/ie8.css" %}" /><![endif]-->
 	</head>
 	<body class="right-sidebar">
 		<div id="page-wrapper">
@@ -31,8 +32,10 @@
 									<li>
 										<a href="#">Other</a>
 										<ul>
-											<li><a href="#">Summer Rooming</a></li>
-											<li><a href="#">Officers</a></li>
+											<li><a href="/summer/">Summer Rooming</a></li>
+											<li><a href="/officers/">Officers</a></li>
+											<li><a href="/login/">Login</a></li>
+
 										</ul>
 									</li>
 								</ul>
@@ -58,7 +61,7 @@
 				<div id="footer-wrapper" class="wrapper">
 					<div id="copyright">
 						<ul>
-							<li>Theta Chi Fraterntiy</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; Theta Chi Fraterntiy</li><li>CSS: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
 					</div>
 				</div>
@@ -67,13 +70,13 @@
 
 		<!-- Scripts -->
 
-			<script src="{{STATIC_URL}}assets/js/jquery.min.js"></script>
-			<script src="{{STATIC_URL}}assets/js/jquery.dropotron.min.js"></script>
-			<script src="{{STATIC_URL}}assets/js/skel.min.js"></script>
-			<script src="{{STATIC_URL}}assets/js/skel-viewport.min.js"></script>
-			<script src="{{STATIC_URL}}assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="{{STATIC_URL}}assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="{{STATIC_URL}}assets/js/main.js"></script>
+			<script src="{% static "assets/js/jquery.min.js" %}"></script>
+			<script src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
+			<script src="{% static "assets/js/skel.min.js" %}"></script>
+			<script src="{% static "assets/js/skel-viewport.min.js" %}"></script>
+			<script src="{% static "assets/js/util.js" %}"></script>
+			<!--[if lte IE 8]><script src="{% static "assets/js/ie/respond.min.js" %}"></script><![endif]-->
+			<script src="{% static "assets/js/main.js" %}"></script>
 
 	</body>
 </html>

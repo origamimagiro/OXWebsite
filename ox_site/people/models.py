@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib.auth.admin import User
+from ox_site import settings
 
 class Brother(models.Model):
 	user = models.OneToOneField(User, unique=True) #leverage the base user model
+	image = models.ImageField(default=settings.MEDIA_URL+'/coatarms.jpg')
 	class_year = models.IntegerField(blank=True)
 	major = models.CharField(max_length=20,blank=True, default="undecided")
 	hometown = models.CharField(max_length=100, blank=True)
@@ -10,6 +12,7 @@ class Brother(models.Model):
 	campus_involvement = models.CharField(max_length=500, blank=True)
 	is_alum = models.BooleanField(default=False)
 	big_brother = models.ManyToManyField('self', blank=True) # Many to Many with self
+
 
 	"""
 	potential future functionality

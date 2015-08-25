@@ -1331,6 +1331,12 @@
 			margin: 0 0 2em 0;
 		}
 
+		.image.featured2 {
+			display: block;
+			width: 50%;
+			margin: 0 auto;
+		}
+
 /* Button */
 
 	input[type="button"],

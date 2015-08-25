@@ -1,17 +1,15 @@
 <!DOCTYPE HTML>
-<!--
-	Escape Velocity by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
+{% load staticfiles %}
+
 <html>
 	<head>
 		<title>Theta Chi Fraternity</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="{{ STATIC_URL }}assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="{% static "assets/js/ie/html5shiv.js"%}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static "assets/css/ie8.css" %}" /><![endif]-->
 	</head>
 	<body class="homepage">
 		<div id="page-wrapper">
@@ -36,25 +34,14 @@
 									<li>
 										<a href="#">Other</a>
 										<ul>
-											<li><a href="#">Summer Rooming</a></li>
-											<li><a href="#">Magna veroeros</a></li>
-											<li><a href="#">Etiam nisl</a></li>
-											<li>
-												<a href="#">Sed consequat</a>
-												<ul>
-													<li><a href="#">Lorem dolor</a></li>
-													<li><a href="#">Amet consequat</a></li>
-													<li><a href="#">Magna phasellus</a></li>
-													<li><a href="#">Etiam nisl</a></li>
-													<li><a href="#">Sed feugiat</a></li>
-												</ul>
-											</li>
-											<li><a href="#">Nisl tempus</a></li>
+											<li><a href="/summer/">Summer Rooming</a></li>
+											<li><a href="/officers/">Officers</a></li>
+											<li><a href="/login/">Login</a></li>
+
 										</ul>
 									</li>
 								</ul>
 							</nav>
-
 					</div>
 				</div>
 
@@ -80,7 +67,7 @@
 
 						<!-- Image -->
 							<a href="#" class="image featured">
-								<img src="{{ STATIC_URL }}images/logo.jpg" alt="" />
+								<img src="{% static "images/logo.jpg" %}" alt="" />
 							</a>
 
 						<!-- Features -->
@@ -149,7 +136,7 @@
 						<div class="row 150%">
 							<div class="4u 12u(mobile)">
 								<section class="highlight">
-									<a href="#" class="image featured"><img src="{{ STATIC_URL }}images/pic02.jpg" alt="" /></a>
+									<a href="#" class="image featured"><img src="{% static "images/pic02.jpg" %}" alt="" /></a>
 									<h3><a href="#">Aliquam diam consequat</a></h3>
 									<p>Eget mattis at, laoreet vel amet sed velit aliquam diam ante, dolor aliquet sit amet vulputate mattis amet laoreet lorem.</p>
 									<ul class="actions">
@@ -159,7 +146,7 @@
 							</div>
 							<div class="4u 12u(mobile)">
 								<section class="highlight">
-									<a href="#" class="image featured"><img src="{{ STATIC_URL }}images/pic03.jpg" alt="" /></a>
+									<a href="#" class="image featured"><img src="{% static "images/pic03.jpg" %}" alt="" /></a>
 									<h3><a href="#">Nisl adipiscing sed lorem</a></h3>
 									<p>Eget mattis at, laoreet vel amet sed velit aliquam diam ante, dolor aliquet sit amet vulputate mattis amet laoreet lorem.</p>
 									<ul class="actions">
@@ -169,7 +156,7 @@
 							</div>
 							<div class="4u 12u(mobile)">
 								<section class="highlight">
-									<a href="#" class="image featured"><img src="{{ STATIC_URL }}images/pic04.jpg" alt="" /></a>
+									<a href="#" class="image featured"><img src="{% static "images/pic04.jpg" %}" alt="" /></a>
 									<h3><a href="#">Mattis tempus lorem</a></h3>
 									<p>Eget mattis at, laoreet vel amet sed velit aliquam diam ante, dolor aliquet sit amet vulputate mattis amet laoreet lorem.</p>
 									<ul class="actions">
@@ -183,55 +170,16 @@
 
 			<!-- Footer -->
 				<div id="footer-wrapper" class="wrapper">
-					<div class="title">The Rest Of It</div>
+					<div class="title">Contact Us</div>
 					<div id="footer" class="container">
-						<header class="style1">
-							<h2>Ipsum sapien elementum portitor?</h2>
-							<p>
-								Sed turpis tortor, tincidunt sed ornare in metus porttitor mollis nunc in aliquet.<br />
-								Nam pharetra laoreet imperdiet volutpat etiam consequat feugiat.
-							</p>
-						</header>
-						<hr />
 						<div class="row 150%">
 							<div class="6u 12u(mobile)">
-
-								<!-- Contact Form -->
-									<section>
-										<form method="post" action="#">
-											<div class="row 50%">
-												<div class="6u 12u(mobile)">
-													<input type="text" name="name" id="contact-name" placeholder="Name" />
-												</div>
-												<div class="6u 12u(mobile)">
-													<input type="text" name="email" id="contact-email" placeholder="Email" />
-												</div>
-											</div>
-											<div class="row 50%">
-												<div class="12u">
-													<textarea name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
-												</div>
-											</div>
-											<div class="row">
-												<div class="12u">
-													<ul class="actions">
-														<li><input type="submit" class="style1" value="Send" /></li>
-														<li><input type="reset" class="style2" value="Reset" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-							</div>
-							<div class="6u 12u(mobile)">
-
 								<!-- Contact -->
 									<section class="feature-list small">
 										<div class="row">
 											<div class="6u 12u(mobile)">
 												<section>
-													<h3 class="icon fa-home">Mailing Address</h3>
+													<h3 class="icon fa-home">Address</h3>
 													<p>
 														Theta Chi Fraternity<br />
 														528 Beacon Street <br />
@@ -241,40 +189,33 @@
 											</div>
 											<div class="6u 12u(mobile)">
 												<section>
-													<h3 class="icon fa-comment">Social</h3>
+													<h3 class="icon fa-facebook">Social</h3>
 													<p>
 														<a href="https://www.facebook.com/thetachimit">Facebook</a>
 													</p>
 												</section>
 											</div>
 										</div>
+									</section>
+							</div>
+							<div class="6u 12u(mobile)">
+								<!-- Contact -->
+									<section class="feature-list small">
 										<div class="row">
 											<div class="6u 12u(mobile)">
 												<section>
-													<h3 class="icon fa-envelope">Email</h3>
-													<p>
-														<a href="#">ox@mit.edu</a>
-													</p>
-												</section>
-											</div>
-											<div class="6u 12u(mobile)">
-												<section>
-													<h3 class="icon fa-phone">Phone</h3>
-													<p>
-														(000) 555-0000
-													</p>
-												</section>
+													<h3 class="icon fa-home">Email</h3>
+													<a href="mailto:ox@mit.edu?Subject=From%20Website" target="_top">ox@mit.edu</a>												</section>
 											</div>
 										</div>
 									</section>
-
 							</div>
 						</div>
 						<hr />
 					</div>
 					<div id="copyright">
 						<ul>
-							<li>&copy; Theta Chi Fraterntiy</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; Theta Chi Fraterntiy</li><li>CSS: <a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
 					</div>
 				</div>
@@ -283,13 +224,13 @@
 
 		<!-- Scripts -->
 
-			<script src="{{STATIC_URL}}assets/js/jquery.min.js"></script>
-			<script src="{{STATIC_URL}}assets/js/jquery.dropotron.min.js"></script>
-			<script src="{{STATIC_URL}}assets/js/skel.min.js"></script>
-			<script src="{{STATIC_URL}}assets/js/skel-viewport.min.js"></script>
-			<script src="{{STATIC_URL}}assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="{{STATIC_URL}}assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="{{STATIC_URL}}assets/js/main.js"></script>
+			<script src="{% static "assets/js/jquery.min.js" %}"></script>
+			<script src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
+			<script src="{% static "assets/js/skel.min.js" %}"></script>
+			<script src="{% static "assets/js/skel-viewport.min.js" %}"></script>
+			<script src="{% static "assets/js/util.js" %}"></script>
+			<!--[if lte IE 8]><script src="{ %static "assets/js/ie/respond.min.js" %}"></script><![endif]-->
+			<script src="{% static "assets/js/main.js" %}"></script>
 
 	</body>
 </html>

@@ -16,15 +16,22 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from people import urls as people_urls
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns, static
 from . import views
+from . import settings
 
 urlpatterns = [
     url(r'^$', views.redirect),
     url(r'^main/', views.index),
-    url(r'^brotherhood/', views.brotherhood),
-    url(r'^people/', include(people_urls)),
+    url(r'^brotherhood/', include(people_urls)),
     url(r'^rush/', views.rush),
     url(r'^events/', views.events),
-    url(r'^admin/', include(admin.site.urls))
-
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^summer/', views.summer),
+    url(r'^officers/', views.officers),
+    url(r'^login/', views.login),
+    url(r'^failed/', views.bad_login)
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

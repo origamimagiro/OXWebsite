@@ -1,23 +1,52 @@
-from django.shortcuts import render, render_to_response, RequestContext, HttpResponseRedirect
-from people.models import Brother
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, HttpResponseRedirect, Http404
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as user_login
 
-# Create your views here.
 def index(request):
-	args = {'test': 'context works'}
-	return render_to_response('index.html', args, context_instance=RequestContext(request))
-
-def brotherhood(request):
-	henry = Brother.objects.all()
-	args = {'brothers':henry}
-	print(args)
-	return render_to_response('templates/brotherhood/base.html', args, context_instance=RequestContext(request))
+	return render(request, 'index.html')
 
 def rush(request):
-	return render_to_response('rush.html', context_instance=RequestContext(request))
+	return render(request, 'templates/rush/main.html')
 
 def events(request):
-	return render_to_response('events.html', context_instance=RequestContext(request))
+	return render(request, 'templates/events/main.html')
 
 def redirect(request):
 	return HttpResponseRedirect('/main/')
+
+def summer(request):
+	return render(request, 'templates/other/summer_rooming.html')
+
+def officers(request):
+	return render(request, 'templates/other/officers.html')
+
+          
+def login(request):
+	if request.method == 'GET':
+		return render(request, 'templates/other/login.html')
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_staff:
+				return HttpResponseRedirect('/admin/')
+			elif user.is_active:
+				user_login(request, user)
+				# return a 'success page'
+				return HttpResponseRedirect('/brotherhood/edit/')
+			else:
+				# Return a 'disabled account' error message
+				return HttpResponseRedirect('/failed/')
+		else:
+		    # Return an 'invalid login' error message.
+		    return HttpResponseRedirect('/failed/')
+
+
+def bad_login(request):
+	return render(request, 'templates/other/failed_login.html')
+
+def handler404(request):
+    return render(request,'templates/other/404.html', status=404)
+
+

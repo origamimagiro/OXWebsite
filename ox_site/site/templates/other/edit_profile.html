@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block name %}
+Edit Profile
+{% endblock %}
+{% block title %}
+{{ brother.user.first_name }} {{ brother.user.last_name }}
+{% endblock %}
+{% block content %}
+
+<div class="image featured2">
+    <img src="{{brother.image.url}}"/>
+
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            Change Photo<br>
+            <input id="id_image" type="file" class="" name="image">
+        </p>
+        <br>
+        <input type="submit" value="Upload New Photo" />
+    </form>
+
+    <form action="." method="post" name="details">
+    {% csrf_token %}    
+        About:
+        <textarea type="text" name="about"/>{{ brother.about }}</textarea><br />
+        Major:
+        <input type="text" name="major" value="{{ brother.major}}" /><br />
+        Hometown:
+        <input type="text" name="hometown" value="{{ brother.hometown}}" /><br />
+        Campus Involvement:
+        <textarea type="text" name="campus_involvement"/>{{ brother.campus_involvement }} </textarea> <br />
+        <input type="submit" value="Change Profile Information" name="save" />
+        <br/>
+    </form>
+
+    <form action="." method="post">
+    {% csrf_token %}    
+        <br/>
+        Password:
+        <input type="password" name="password"/><br />
+        Confirm Password:
+        <input type="password" name="password2" /><br />
+
+        <input type="submit" value="Change Password" name="change_pass" />
+        <br/>
+    </form>
+</div>
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, Http404
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as user_login
+from django.contrib.auth.decorators import login_required
 
 def index(request):
 	return render(request, 'index.html')
@@ -48,5 +49,21 @@ def bad_login(request):
 
 def handler404(request):
     return render(request,'templates/other/404.html', status=404)
+
+@login_required(login_url='/login/')
+def update_password(request):
+	user = request.user
+	if request.method == 'POST':
+		password = request.POST['password']
+		password_confirm = request.POST['password2']
+		if password_confirm != password:
+			return render(request, 'templates/other/404')
+		else:
+			user.set_password(password)
+			user.save()
+			return HttpResponseRedirect('/brotherhood/edit')
+	else:
+		pass
+	return render(request, 'templates/other/change_password.html')
 
 

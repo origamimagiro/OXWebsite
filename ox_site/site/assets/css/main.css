@@ -1348,6 +1348,10 @@
 		    margin-right: auto;*/
 		}
 
+		.image.fitcap{
+			max-width: 100%;
+		}
+
 
 /* Button */
 

@@ -67,3 +67,6 @@ def update_password(request):
 	return render(request, 'templates/other/change_password.html')
 
 
+def history(request):
+	return render(request, 'templates/history/history.html')
+

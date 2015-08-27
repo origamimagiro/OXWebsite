@@ -17,7 +17,7 @@ def brother_profile(request, args):
 
 
 def all_brothers(request):
-	all_bros = Brother.objects.all()
+	all_bros = Brother.objects.all().order_by('class_year')
 	args = {'brothers':all_bros}
 	return render(request, 'templates/brotherhood/everyone.html', args)
 

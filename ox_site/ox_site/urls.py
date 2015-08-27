@@ -31,7 +31,8 @@ urlpatterns = [
     url(r'^officers/', views.officers),
     url(r'^login/', views.login),
     url(r'^updatepassword/', views.update_password),
-    url(r'^failed/', views.bad_login)
+    url(r'^failed/', views.bad_login),
+    url(r'^history/', views.history)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

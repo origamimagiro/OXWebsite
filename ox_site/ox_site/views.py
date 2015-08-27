@@ -17,10 +17,6 @@ def redirect(request):
 
 def summer(request):
 	return render(request, 'templates/other/summer_rooming.html')
-
-def officers(request):
-	return render(request, 'templates/other/officers.html')
-
           
 def login(request):
 	if request.method == 'GET':

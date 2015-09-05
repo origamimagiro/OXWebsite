@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block name %}Brotherhood {% endblock %}
+{% block title %}Brotherhood{% endblock %}
+
+{% block content %}
+<!-- Content -->
+	<div id="content">
+		<article class="box post">
+			<header class="style1">
+				<h2>The brothers of Theta Chi hail from around the world and bring together a diverse set of talents, interests and backgrounds</h2>
+			</header>
+		</article>
+		<div class="row 150%">
+			{% for bro in brothers %}
+			<div class="4u 12u(mobile)">
+				<section class="box">
+					<header>
+						<h2>{{bro.user.first_name}} {{bro.user.last_name}}, {{bro.class_year}}</h2>
+					</header>
+					<a href="/brotherhood/profile/{{bro.user.username}}" ><img src="{{bro.image.url}}" alt="" class="image featured3"/></a>
+				</section>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>{% block name %}name{% endblock %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{% static "assets/js/ie/html5shiv.js" %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static "assets/css/main.css" %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static "assets/css/ie8.css" %}" /><![endif]-->
+	</head>
+	<body class="right-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper" class="wrapper">
+					<div id="header">
+
+						<!-- Logo -->
+							<div id="logo">
+								<h1><a href="/main/">Theta Chi Fraternity</a></h1>
+								<p>Beta Chapter</p>
+							</div>
+
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li><a href="/main/">Main</a></li>
+									<li><a href="/brotherhood/">Brotherhood</a></li>
+									<li><a href="/rush/">Rush</a></li>
+									<li><a href="/events/">Events</a></li>
+									<li>
+										<a href="#">Other</a>
+										<ul>
+											<li><a href="/history/">History</a></li>
+											<li><a href="/summer/">Summer Rooming</a></li>
+											<li><a href="/login/">Login</a></li>
+
+										</ul>
+									</li>
+								</ul>
+							</nav>
+
+					</div>
+				</div>
+			<!-- Main -->
+				<div class="wrapper style2">
+					<div class="title">{% block title %}title{% endblock %}</div>
+					<div id="main" class="container">
+
+						<!-- Content -->
+							<div id="content">
+								{% block content %}
+								{% endblock %}
+							</div>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<div id="footer-wrapper" class="wrapper">
+					<div id="copyright">
+						<ul>
+							<li>&copy; Theta Chi Fraterntiy</li><li>CSS: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+
+			<script src="{% static "assets/js/jquery.min.js" %}"></script>
+			<script src="{% static "assets/js/jquery.dropotron.min.js" %}"></script>
+			<script src="{% static "assets/js/skel.min.js" %}"></script>
+			<script src="{% static "assets/js/skel-viewport.min.js" %}"></script>
+			<script src="{% static "assets/js/util.js" %}"></script>
+			<!--[if lte IE 8]><script src="{% static "assets/js/ie/respond.min.js" %}"></script><![endif]-->
+			<script src="{% static "assets/js/main.js" %}"></script>
+
+	</body>
+</html>

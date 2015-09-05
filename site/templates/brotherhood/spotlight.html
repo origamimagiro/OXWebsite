@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block name %}Brother {% endblock %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<!-- Image -->
+	<img src="{{ brother.image.url }}" alt="" class="image featured2"/>
+
+<!-- Features -->
+	<section id="features">
+		<header class="style1">
+			<h2>{{ brother.user.first_name }} {{ brother.user.last_name }}</h2>
+			<p>{{brother.about}}</p>
+		</header>
+		<div class="feature-list">
+			<div class="row">
+				<div class="6u 12u(mobile)">
+					<section>
+						<h3 class="icon fa-graduation-cap">Class Year</h3>
+						<p>{{brother.class_year}}</p>
+					</section>
+				</div>
+				<div class="6u 12u(mobile)">
+					<section>
+						<h3 class="icon fa-map-marker">Hometown</h3>
+						<p>{{brother.hometown}}</p>
+					</section>
+				</div>
+			</div>
+			<div class="row">
+				<div class="6u 12u(mobile)">
+					<section>
+						<h3 class="icon fa-book">Major(s)</h3>
+						<p>{{brother.major}}</p>
+					</section>
+				</div>
+				<div class="6u 12u(mobile)">
+					<section>
+						<h3 class="icon fa-soccer-ball-o ">Campus Involvement</h3>
+						<p>{{brother.campus_involvement}}</p>
+					</section>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

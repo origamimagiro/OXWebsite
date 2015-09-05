@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block name %}Rush {% endblock %}
+{% block title %}Rush 2015{% endblock %}
+
+{% block content %}
+<!-- Content -->
+	<div id="content">
+		<article class="box post">
+			<header class="style1">
+				<h2>Theta Chi is looking for quality individuals to join our ranks. Stop by some of our events or drop in at the house for a quick hello to see what we are all about. We look forward to getting to know you! Get pumped.</h2>
+				<img src="{% static "images/logo_rush.jpg" %}" class="image fitcap"/> 
+			</header>
+		</article>
+	</div>
+
+	<header class="style1">
+		<h2> Saturday September 5th</h2>
+	</header>
+	<div class="feature-list">
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								<section>
+									<h3>Yak Burger and Smoothies</h3>
+									<p>Academics are a priority at Theta Chi. Members of the house excel in a wide variety of academic pursuits and are always willing to help one another on a problem set or difficult concept. </p>
+								</section>
+							</div>
+							<div class="6u 12u(mobile)">
+								<section>
+									<h3>Community Serivce</h3>
+									<p>At Theta Chi we believe we have a responsability to the people around us. We work with charities and local organizations to give back to our community. Every semester we hold at least one charity event.</p>
+								</section>
+							</div>
+						</div>
+						<div class="row">
+							<div class="6u 12u(mobile)">
+								<section>
+									<h3>Health</h3>
+									<p>We are dedicated to fostering a healthy and safe environment. Each semester we particpate in a several intermural sports and hold a variety of outings to get brothers out and active.</p>
+								</section>
+							</div>
+							<div class="6u 12u(mobile)">
+								<section>
+									<h3>Alumni Network</h3>
+									<p>Being a part of Theta Chi means being a part of our rich history and tradition. With over eleven hundred alumni, our organization gives memebers a chance to meet and connect with alumni from all parts of the world across a variety of professions.</p>
+								</section>
+							</div>
+						</div>
+	</div>
+{% endblock %}

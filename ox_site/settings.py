@@ -111,7 +111,7 @@ DATABASES = {
 }
 
 ## PRODUCTION: 
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config(default=os.getenv('DATABASE_URL'))
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()

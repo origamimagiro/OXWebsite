@@ -15,7 +15,6 @@ import os
 import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ALLOWED_HOSTS = ['fierce-ridge-7233.herokuapp.com']
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,8 +25,6 @@ SECRET_KEY = 'ieuih^ob87e@&i$d%*4yj*gk9$ef9#jr)69d3j5j8$2&p12&rw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -115,9 +112,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 ## PRODUCTION: 
-DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
-DATABASES['default']['ENGINE'] = 'django_postgrespool'
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -133,6 +134,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

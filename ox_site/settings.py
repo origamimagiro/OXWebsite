@@ -102,14 +102,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-## DEVELOPMENT: 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
+# DEVELOPMENT: 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 ## PRODUCTION: 
 DATABASES['default'] =  dj_database_url.config()

@@ -15,6 +15,7 @@ import os
 import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ALLOWED_HOSTS = ['fierce-ridge-7233.herokuapp.com']
 
 
 # Quick-start development settings - unsuitable for production
@@ -134,4 +135,4 @@ USE_L10N = True
 USE_TZ = True
 
 
-
+SECURE_PROXY_SSL_HEADER = (‘HTTP_X_FORWARDED_PROTO’, ‘https’)

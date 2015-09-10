@@ -114,6 +114,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 ## PRODUCTION: 
+DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
 
 

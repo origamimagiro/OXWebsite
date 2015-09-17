@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'ox_site.wsgi.application'
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-STATIC_URL = 'http://s3.amazonaws.com/oxwebsite/'
+STATIC_URL = 'oxwebsite.s3-website-us-east-1.amazonaws.com'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'site'),

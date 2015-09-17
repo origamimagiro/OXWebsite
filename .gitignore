@@ -2,3 +2,4 @@
 virt/
 *.sqlite3
 *.DS_Store
+staticfiles/

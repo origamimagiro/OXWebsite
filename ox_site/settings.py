@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ieuih^ob87e@&i$d%*4yj*gk9$ef9#jr)69d3j5j8$2&p12&rw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 # Application definition
@@ -76,19 +76,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ox_site.wsgi.application'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'site/'),
-#     #'/Users/henryaspegren/Documents/Projects/OXWebsite/ox_site/site',
-# )
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+
+STATIC_URL = 'http://s3.amazonaws.com/oxwebsite/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'site'),
@@ -101,7 +93,7 @@ MEDIA_URL = '/media/'
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home2/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 

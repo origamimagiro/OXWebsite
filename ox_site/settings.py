@@ -91,7 +91,7 @@ AWS_PRELOAD_METADATA = True
 DEFAULT_FILE_STORAGE = 'myproject.s3utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'myproject.s3utils.StaticRootS3BotoStorage'
 
-STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static'
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/'
 ADMIN_MEDIA_PREFIX = 'https://bucket-name.s3.amazonaws.com/static/admin/'
 
 
@@ -104,7 +104,7 @@ STATICFILES_DIRS = (
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = '/media/'
 
-MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media'
+MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home2/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

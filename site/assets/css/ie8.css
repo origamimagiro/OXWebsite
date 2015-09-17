@@ -13,14 +13,14 @@
 	form select,
 	form textarea {
 		position: relative;
-		-ms-behavior: url("/assets/js/ie/PIE.htc");
+		-ms-behavior: url("../assets/js/ie/PIE.htc");
 	}
 
 	input[type="button"],
 	input[type="submit"],
 	input[type="reset"] {
 		position: relative;
-		-ms-behavior: url("/assets/js/ie/PIE.htc");
+		-ms-behavior: url("../assets/js/ie/PIE.htc");
 	}
 
 	.button,
@@ -29,7 +29,7 @@
 	#nav > ul,
 	.dropotron {
 		position: relative;
-		-ms-behavior: url("/assets/js/ie/PIE.htc");
+		-ms-behavior: url("../assets/js/ie/PIE.htc");
 	}
 
 /* Section/Article */

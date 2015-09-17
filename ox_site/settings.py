@@ -94,7 +94,6 @@ STATICFILES_STORAGE = 'myproject.s3utils.StaticRootS3BotoStorage'
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/'
 ADMIN_MEDIA_PREFIX = 'https://bucket-name.s3.amazonaws.com/static/admin/'
 
-
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'site'),
 )

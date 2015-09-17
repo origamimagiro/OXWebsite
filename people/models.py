@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.admin import User
 from ox_site import settings
+from s3utils import S3CustomStorageg
+
 
 class Brother(models.Model):
 	user = models.OneToOneField(User, unique=True) #leverage the base user model
-	image = models.ImageField(default='http://oxwebsite.s3.amazonaws.com/static/images/coatarms.jpg')
+	image = models.ImageField(default=STATIC_URL+'images/coatarms.jpg', storage=S3CustomStorage())
 	class_year = models.IntegerField(blank=True)
 	major = models.CharField(max_length=20,blank=True, default="undecided")
 	hometown = models.CharField(max_length=100, blank=True)

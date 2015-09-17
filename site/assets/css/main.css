@@ -1331,6 +1331,28 @@
 			margin: 0 0 2em 0;
 		}
 
+		.image.featured2 {
+			display: block;
+			width: 50%;
+			margin: 0 auto;
+		}
+
+		.image.featured3 {
+			display: block;
+			width: 300px;
+			height: 400px;
+/*			display: block;
+			width: 400px;
+			height: 500px;
+		    margin-left: auto;
+		    margin-right: auto;*/
+		}
+
+		.image.fitcap{
+			max-width: 100%;
+		}
+
+
 /* Button */
 
 	input[type="button"],

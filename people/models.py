@@ -5,7 +5,7 @@ from ox_site import settings
 class Brother(models.Model):
 	user = models.OneToOneField(User, unique=True) #leverage the base user model
 	image = models.ImageField(default='http://oxwebsite.s3.amazonaws.com/static/images/coatarms.jpg')
-	class_year = models.IntegerField(null=True)
+	class_year = models.IntegerField(blank=True)
 	major = models.CharField(max_length=20,blank=True, default="undecided")
 	hometown = models.CharField(max_length=100, blank=True)
 	about = models.CharField(max_length=500, blank=True)

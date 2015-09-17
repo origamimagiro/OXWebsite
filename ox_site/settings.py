@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ieuih^ob87e@&i$d%*4yj*gk9$ef9#jr)69d3j5j8$2&p12&rw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 # Application definition
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'ox_site.wsgi.application'
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-STATIC_URL = 'oxwebsite.s3-website-us-east-1.amazonaws.com'
+STATIC_URL = 'http://s3.amazonaws.com/oxwebsite/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'site'),

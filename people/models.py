@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.admin import User
 from ox_site import settings
-from s3utils import S3CustomStorage
 
 
 class Brother(models.Model):

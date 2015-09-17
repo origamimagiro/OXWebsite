@@ -1,5 +1,5 @@
 from storages.backends.s3boto import S3BotoStorage
-import settings
+from ox_site import settings
 
 
 class FixedS3BotoStorage(S3BotoStorage):

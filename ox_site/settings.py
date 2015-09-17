@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ieuih^ob87e@&i$d%*4yj*gk9$ef9#jr)69d3j5j8$2&p12&rw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 # Application definition
@@ -87,12 +87,15 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_PRELOAD_METADATA = True 
+AWS_QUERYSTRING_AUTH = False
 
 DEFAULT_FILE_STORAGE = 's3utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 's3utils.StaticRootS3BotoStorage'
 
-STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/'
-ADMIN_MEDIA_PREFIX = 'https://bucket-name.s3.amazonaws.com/static/admin/'
+STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/'
+
+
+ADMIN_MEDIA_PREFIX = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/admin/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'site'),
@@ -103,7 +106,8 @@ STATICFILES_DIRS = (
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = '/media/'
 
-MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
+
+MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home2/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

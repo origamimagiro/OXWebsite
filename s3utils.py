@@ -1,11 +1,13 @@
 from storages.backends.s3boto import S3BotoStorage
+import settings
 
-StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
-MediaRootS3BotoStorage  = lambda: S3BotoStorage(location='media')
 
-class S3CustomStorage(S3BotoStorage):
-	def _normalize_name(self, name):
-		"""
-		Get rid of this crap: http://stackoverflow.com/questions/12535123/django-storages-and-amazon-s3-suspiciousoperation
-		"""
-		return name
+class FixedS3BotoStorage(S3BotoStorage):
+    def url(self, name):
+        url = super(FixedS3BotoStorage, self).url(name)
+        if name.endswith('/') and not url.endswith('/'):
+            url += '/'
+        return url
+
+StaticRootS3BotoStorage = lambda: FixedS3BotoStorage(location=settings.STATIC_ROOT)
+MediaRootS3BotoStorage  = lambda: FixedS3BotoStorage(location=settings.MEDIA_ROOT)

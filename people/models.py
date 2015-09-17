@@ -6,7 +6,7 @@ from s3utils import S3CustomStorage
 
 class Brother(models.Model):
 	user = models.OneToOneField(User, unique=True) #leverage the base user model
-	image = models.ImageField(default=settings.STATIC_URL+'images/coatarms.jpg', storage=S3CustomStorage())
+	image = models.ImageField(default=settings.STATIC_URL+'images/coatarms.jpg')
 	class_year = models.IntegerField(blank=True)
 	major = models.CharField(max_length=20,blank=True, default="undecided")
 	hometown = models.CharField(max_length=100, blank=True)

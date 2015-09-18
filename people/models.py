@@ -13,7 +13,8 @@ class Brother(models.Model):
 	campus_involvement = models.CharField(max_length=500, blank=True)
 	is_alum = models.BooleanField(default=False)
 	image = models.ImageField()
-    image_headshot = ImageSpecField(processors=[ResizeToFill(300, 400)], format='JPEG')
+	image_headshot = ImageSpecField(processors=[ResizeToFill(300, 400)], 
+		format='JPEG')
 	big_brother = models.ManyToManyField('self', blank=True) # Many to Many with self
 
 

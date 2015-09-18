@@ -88,37 +88,36 @@ STATICFILES_DIRS = (
 
 
 # Local development settings
-if debug:
-    STATIC_URL = '/static/'
-    MEDIA_URL = '/media/'
-    # Database
-    # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+# Database
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-    # DEVELOPMENT: 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+# DEVELOPMENT: 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
 
-else:
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    AWS_PRELOAD_METADATA = True 
-    AWS_QUERYSTRING_AUTH = False
-    
-    DEFAULT_FILE_STORAGE = 's3utils.MediaRootS3BotoStorage'
-    STATICFILES_STORAGE = 's3utils.StaticRootS3BotoStorage'
+# Deployment settings on heroku and s3
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_PRELOAD_METADATA = True 
+AWS_QUERYSTRING_AUTH = False
 
-    STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/'
-    MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
+DEFAULT_FILE_STORAGE = 's3utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 's3utils.StaticRootS3BotoStorage'
 
-    ADMIN_MEDIA_PREFIX = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/admin/'
-    # Production Database on Heroku
-    DATABASES['default'] =  dj_database_url.config(default=os.getenv('DATABASE_URL'))
-    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/'
+MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/media/'
+
+ADMIN_MEDIA_PREFIX = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/static/admin/'
+# Production Database on Heroku
+DATABASES['default'] =  dj_database_url.config(default=os.getenv('DATABASE_URL'))
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

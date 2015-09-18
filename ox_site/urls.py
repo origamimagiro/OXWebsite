@@ -23,10 +23,10 @@ from . import settings
 urlpatterns = [
     url(r'^$', views.redirect),
     url(r'^main/$', views.index),
-    url(r'^brotherhood/$', include(people_urls)),
+    url(r'^brotherhood/', include(people_urls)),
     url(r'^rush/$', views.rush),
     url(r'^events/$', views.events),
-    url(r'^admin/$', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^summer/$', views.summer),
     url(r'^login/$', views.login),
     url(r'^updatepassword/$', views.update_password),

@@ -22,16 +22,16 @@ from . import settings
 
 urlpatterns = [
     url(r'^$', views.redirect),
-    url(r'^main/', views.index),
-    url(r'^brotherhood/', include(people_urls)),
-    url(r'^rush/', views.rush),
-    url(r'^events/', views.events),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^summer/', views.summer),
-    url(r'^login/', views.login),
-    url(r'^updatepassword/', views.update_password),
-    url(r'^failed/', views.bad_login),
-    url(r'^history/', views.history)
+    url(r'^main/$', views.index),
+    url(r'^brotherhood/$', include(people_urls)),
+    url(r'^rush/$', views.rush),
+    url(r'^events/$', views.events),
+    url(r'^admin/$', include(admin.site.urls)),
+    url(r'^summer/$', views.summer),
+    url(r'^login/$', views.login),
+    url(r'^updatepassword/$', views.update_password),
+    url(r'^failed/$', views.bad_login),
+    url(r'^history/$', views.history)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -9,11 +9,11 @@ def index(request):
 def rush(request):
 	return render(request, 'templates/rush/main.html')
 
-def events(request):
-	return render(request, 'templates/events/main.html')
-
 def alumni(request):
-	return render(request, 'templates/other/alumni.html')
+	return render(request, 'templates/alumni/main.html')
+
+def events(request):
+	return render(request, 'templates/other/events.html')
 
 def redirect(request):
 	return HttpResponseRedirect('/main/')

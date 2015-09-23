@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^events/$', views.events),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^summer/$', views.summer),
+    url(r'^alumni/$', views.alumni),
     url(r'^login/$', views.login),
     url(r'^updatepassword/$', views.update_password),
     url(r'^failed/$', views.bad_login),

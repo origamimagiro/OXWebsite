@@ -12,6 +12,9 @@ def rush(request):
 def events(request):
 	return render(request, 'templates/events/main.html')
 
+def alumni(request):
+	return render(request, 'templates/other/alumni.html')
+
 def redirect(request):
 	return HttpResponseRedirect('/main/')
 

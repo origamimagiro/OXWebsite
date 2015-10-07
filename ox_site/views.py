@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, Http404
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as user_login
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
 
 def index(request):
 	return render(request, 'index.html')
@@ -20,7 +21,8 @@ def redirect(request):
 
 def summer(request):
 	return render(request, 'templates/other/summer_rooming.html')
-          
+
+@csrf_protect        
 def login(request):
 	if request.method == 'GET':
 		return render(request, 'templates/other/login.html')

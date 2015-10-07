@@ -5,6 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from people.forms import UploadImageForm, UpdateBrotherForm
 from ox_site import settings
+from django.template.context_processors import csrf
 
 def brother_profile(request, args):
 	try:

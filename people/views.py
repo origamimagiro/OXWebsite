@@ -33,6 +33,7 @@ def update_profile(request):
 			print(form)
 			form.save()		
 	args = {'brother': brother, 'form':form}
+    args.update(csrf(request))
 	return render(request, 'templates/other/edit_profile.html', args)
 
 

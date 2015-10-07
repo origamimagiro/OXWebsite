@@ -2,7 +2,6 @@ from django.shortcuts import render, HttpResponseRedirect, Http404
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as user_login
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_protect
 
 def index(request):
 	return render(request, 'index.html')
@@ -21,11 +20,12 @@ def redirect(request):
 
 def summer(request):
 	return render(request, 'templates/other/summer_rooming.html')
-
-@csrf_protect        
+        
 def login(request):
+	args = {}
+    args.update(csrf(request))
 	if request.method == 'GET':
-		return render(request, 'templates/other/login.html')
+		return render(request, 'templates/other/login.html', args)
 	if request.method == 'POST':
 		username = request.POST['username']
 		password = request.POST['password']
@@ -53,19 +53,21 @@ def handler404(request):
 
 @login_required(login_url='/login/')
 def update_password(request):
+	args = {}
+    args.update(csrf(request))
 	user = request.user
 	if request.method == 'POST':
 		password = request.POST['password']
 		password_confirm = request.POST['password2']
 		if password_confirm != password:
-			return render(request, 'templates/other/404')
+			return render(request, 'templates/other/404', args)
 		else:
 			user.set_password(password)
 			user.save()
 			return HttpResponseRedirect('/brotherhood/edit')
 	else:
 		pass
-	return render(request, 'templates/other/change_password.html')
+	return render(request, 'templates/other/change_password.html', args)
 
 
 def history(request):

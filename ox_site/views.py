@@ -24,7 +24,7 @@ def summer(request):
         
 def login(request):
 	args = {}
-    args.update(csrf(request))
+	args.update(csrf(request))
 	if request.method == 'GET':
 		return render(request, 'templates/other/login.html', args)
 	if request.method == 'POST':
@@ -55,7 +55,7 @@ def handler404(request):
 @login_required(login_url='/login/')
 def update_password(request):
 	args = {}
-    args.update(csrf(request))
+	args.update(csrf(request))
 	user = request.user
 	if request.method == 'POST':
 		password = request.POST['password']

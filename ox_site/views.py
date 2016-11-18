@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as user_login
 from django.contrib.auth.decorators import login_required
 from django.template.context_processors import csrf
+import os
 
 def index(request):
 	return render(request, 'index.html')
@@ -11,7 +12,8 @@ def rush(request):
 	return render(request, 'templates/rush/main.html')
 
 def alumni(request):
-	return render(request, 'templates/alumni/main.html')
+	print os.getcwd()
+	return render(request, 'index_alum.html')
 
 def events(request):
 	return render(request, 'templates/other/events.html')

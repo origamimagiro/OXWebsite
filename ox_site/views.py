@@ -13,7 +13,7 @@ def rush(request):
 
 def alumni(request):
 	print os.getcwd()
-	return render(request, 'index_alum.html')
+	return render(request, 'index_alums.html')
 
 def events(request):
 	return render(request, 'templates/other/events.html')
